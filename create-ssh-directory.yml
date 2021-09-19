@@ -1,0 +1,25 @@
+---
+  - name: Create accounts on all nodes
+    hosts: all
+    remote_user: ec2-user 
+    become: yes
+    tasks:
+    - name: create accounts on duvar
+      hosts: duvar
+      user:
+         name: "{{ item }}"
+         state: present
+         password: "koublockchain"
+         update_password: always
+         generate_ssh_key: yes
+         ssh_key_type: ed25519
+         ssh_key_file: .ssh/id_ed25519
+      loop:
+         - talhao
+         - numanm
+         - cuneytk
+         - caglayans
+         - ranak
+         - huseyink
+         - yilmazd
+         - turguty

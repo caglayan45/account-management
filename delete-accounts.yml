@@ -1,0 +1,14 @@
+---
+  - name: Delete account on all nodes
+    hosts: all
+    remote_user: ec2-user 
+    become: yes
+    tasks:
+    - name: delete account on a node
+      hosts: duvar
+      user:
+         name: "{{ item }}"
+         state: absent
+      loop:
+         - numanm
+         - huseyink

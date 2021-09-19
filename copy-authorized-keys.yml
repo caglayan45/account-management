@@ -1,0 +1,24 @@
+---
+  - name: Create accounts on all nodes
+    hosts: nodes
+    remote_user: ec2-user 
+    become: yes
+    become_user: ec2-user
+    become_method: sudo
+    tasks:
+    - name: Copy authorized_keys from duvar to nodes 
+      copy:
+         src:  /home/{{item}}/.ssh/authorized_keys
+         dest: /home/{{item}}/.ssh/
+         owner: "{{item}}"
+         group: "{{item}}"
+         mode: '0644'
+      loop:
+         - talhao
+         - numanm
+         - cuneytk
+         - caglayans
+         - ranak
+         - huseyink
+         - yilmazd
+         - turguty

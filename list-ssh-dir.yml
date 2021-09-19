@@ -1,0 +1,19 @@
+---
+  - name: list all .ssh directory
+    hosts: nodes 
+    remote_user: ec2-user 
+    become: yes
+    tasks:
+    - name: list all .ssh directory
+      find:
+         path: /home/{{ item }}/.ssh
+         recurse: yes
+      loop:
+         - talhao
+         - numanm
+         - cuneytk
+         - caglayans
+         - ranak
+         - huseyink
+         - yilmazd
+         - turguty

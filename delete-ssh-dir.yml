@@ -1,0 +1,19 @@
+---
+  - name: delete all .ssh directory
+    hosts: nodes 
+    remote_user: ec2-user 
+    become: yes
+    tasks:
+    - name: delete all .ssh directory
+      shell:
+         chdir: /home/{{ item }}
+         cmd: rm -rf .ssh
+      loop:
+         - talhao
+         - numanm
+         - cuneytk
+         - caglayans
+         - ranak
+         - huseyink
+         - yilmazd
+         - turguty

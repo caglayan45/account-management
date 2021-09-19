@@ -1,0 +1,17 @@
+---
+  - name: Create blockchani group, add all user to wheel and blockchain in all nodes
+    hosts: all
+    remote_user: ec2-user 
+    become: yes
+    tasks:
+    - name: create blockchain group on a node
+      group:
+         name: blockchain
+         state: present
+    - name: add users to wheel and blockchain
+      user:
+         name: "{{ item }}"
+         groups: wheel,blockchain
+         append: yes
+      loop:
+         "{{users}}"

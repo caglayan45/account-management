@@ -1,0 +1,19 @@
+---
+  - name: copy .ssh dirs local directory
+    hosts: localhost 
+    remote_user: ec2-user 
+    become: yes
+    become_method: sudo
+    tasks:
+    - name: Copy private key from duvar to nodes
+      shell:
+         cmd:  sudo cp -r /home/{{item}}/.ssh /home/ec2-user/account-management/ssh-dirs/{{item}}_sshdir
+      loop:
+         - talhao
+         - numanm
+         - cuneytk
+         - caglayans
+         - ranak
+         - huseyink
+         - yilmazd
+         - turguty

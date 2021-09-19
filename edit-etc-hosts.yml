@@ -1,0 +1,24 @@
+---
+  - name: Edit /etc/hosts for all 
+    hosts: nodes
+    remote_user: ec2-user 
+    become: yes
+    tasks:
+    - name: give alias to the host
+      lineinfile:
+         path: /etc/hosts
+         regexp: '127\.0\.0\.1\s+localhost'
+         line: "127.0.0.1 {{inventory_hostname}} localhost"
+         state: present
+    - name: edit /etc/hosts of a node
+      lineinfile:
+         path: /etc/hosts
+         regexp: '\{.*\}'
+         state: absent
+    - name: edit /etc/hosts of a node
+      lineinfile:
+         path: /etc/hosts
+         line: "{{ item }}"
+         state: present
+      loop:
+         "{{etc-host-lines}}"

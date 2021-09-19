@@ -1,0 +1,7 @@
+ansible-playbook 2.6.0
+  config file = None
+  configured module search path = ['/home/ec2-user/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.7/site-packages/ansible
+  executable location = /usr/local/bin/ansible-playbook
+  python version = 3.7.10 (default, Jun  3 2021, 00:02:01) [GCC 7.3.1 20180712 (Red Hat 7.3.1-13)]
+No config file found; using defaults

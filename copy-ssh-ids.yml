@@ -1,0 +1,38 @@
+---
+  - name: Copy the same private and public keys from duvar
+    hosts: nodes
+    remote_user: ec2-user 
+     become: yes
+    tasks:
+    - name: Copy private key from an account
+      copy:
+         src:  /home/{{ item }}/.ssh/id_ed25519 
+         dest: /home/{{ item }}/.ssh/id_ed25519
+         remote_src: yes
+         owner: "{{ item }}"
+         mode: '0600'
+      loop:
+         - talhao
+         - numanm
+         - cuneytk
+         - caglayans
+         - ranak
+         - huseyink
+         - yilmazd
+         - turguty
+    - name: Copy public key from an account
+      copy:
+         src: /home/{{ item }}/.ssh/id_ed25519.pub 
+         dest: /home/{{ item }}/.ssh/id_ed25519.pub 
+         remote_src: yes
+         owner: "{{ item }}"
+         mode: '0644'
+      loop:
+         - talhao
+         - numanm
+         - cuneytk
+         - caglayans
+         - ranak
+         - huseyink
+         - yilmazd
+         - turguty

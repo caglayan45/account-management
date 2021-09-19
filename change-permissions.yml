@@ -1,0 +1,22 @@
+---
+  - name: list all .ssh directory
+    hosts: duvar
+    remote_user: ec2-user 
+    become: yes
+    tasks:
+    - name: list all .ssh directory
+      file:
+         path: /home/{{item}}/.ssh/authorized_keys
+         state: file
+         owner: "{{item}}"
+         group: "{{item}}"
+         mode: '0644'
+      loop:
+         - talhao
+         - numanm
+         - cuneytk
+         - caglayans
+         - ranak
+         - huseyink
+         - yilmazd
+         - turguty

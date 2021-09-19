@@ -1,0 +1,16 @@
+users:
+  - talhao
+  - cuneytk
+  - caglayans
+  - ranak
+  - yilmazd
+  - turguty
+ 
+etc-host-lines:
+  - '10.0.1.26  duvar'
+  - '10.0.1.253 node1 master'
+  - '10.0.1.117 node2 worker1' 
+  - '10.0.1.24  node3 worker2'
+  - '10.0.1.100 node4 worker3'
+  - '10.0.1.185 node5 worker4'
+  - '10.0.1.251 node6 worker5'
